@@ -1,6 +1,6 @@
 # BI2009B_CT
 
-BI2009B (Grupo 101) Procesamiento de Imágenes Médicas para el Diagnóstico
+BI2009B (Grupo 101) Procesamiento de Imágenes Médicas para el Diagnóstico \n
 
 GitHub Colaborativo del Equipo CT:
 A0 Diego Alejandro de la Barreda Martínez
