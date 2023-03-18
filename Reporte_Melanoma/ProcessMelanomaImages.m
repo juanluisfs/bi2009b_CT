@@ -330,7 +330,7 @@ imageFile ='ISIC_0015284.jpg'; loadAndProcessQuantitateImage;
 writematrix(allquantiativeLesionData,'MelanomaLesionFeatures.csv') 
 writematrix(allquantiativeControlData,'MelanomaControlFeatures.csv') 
 
+%% A01197739 Diego De la Barreda Martínez
 %% A01382990 Alexa María de León Durán
 %% A01383088 Juan Luis Flores Sánchez
 %% A01562585 Azul Sofia Moctezuma Enriquez
-%% A01197739 Diego De la Barreda Martínez
