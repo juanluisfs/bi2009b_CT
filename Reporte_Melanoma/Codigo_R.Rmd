@@ -48,7 +48,56 @@ colnames(SeborrheicControlFeatures) <- ControlFeatureNames$FinalName
 
 sum(is.na(MelanomaFeatures))
 sum(is.na(SeborrheicFeatures))
+sum(is.na(MelanomaControlFeatures))
 
+channel1 <- c(1:32)
+channel2 <- c(33:64)
+channel3 <- c(65:96)
+
+MMelanomaFeatures <- (  MelanomaFeatures[,channel1] +
+                        MelanomaFeatures[,channel2] +
+                        MelanomaFeatures[,channel3] )/3.0
+SMelanomaFeatures <- (  abs(MelanomaFeatures[,channel1] - MMelanomaFeatures) +
+                        abs(MelanomaFeatures[,channel2] - MMelanomaFeatures) +
+                        abs(MelanomaFeatures[,channel3] - MMelanomaFeatures) )/3.0
+
+colnames(MMelanomaFeatures) <- paste("M",FeatureNames$Features,sep="")
+colnames(SMelanomaFeatures) <- paste("S",FeatureNames$Features,sep="")
+
+MelanomaFeatures <- cbind(MelanomaFeatures,SMelanomaFeatures/(0.01+abs(MMelanomaFeatures)))
+
+
+MSeborrheicFeatures <- (  SeborrheicFeatures[,channel1] +
+                          SeborrheicFeatures[,channel2] +
+                          SeborrheicFeatures[,channel3] )/3.0
+SSeborrheicFeatures <- (abs(SeborrheicFeatures[,channel1] - MSeborrheicFeatures) +
+                        abs(SeborrheicFeatures[,channel2] - MSeborrheicFeatures) +
+                        abs(SeborrheicFeatures[,channel3] - MSeborrheicFeatures))/3.0
+colnames(MSeborrheicFeatures) <- paste("M",FeatureNames$Features,sep="")
+colnames(SSeborrheicFeatures) <- paste("S",FeatureNames$Features,sep="")
+
+SeborrheicFeatures <- cbind(SeborrheicFeatures,SSeborrheicFeatures/(0.001+abs(MSeborrheicFeatures)))
+
+MMelanomaControlFeatures <- (  MelanomaControlFeatures[,channel1] +
+                               MelanomaControlFeatures[,channel2] +
+                               MelanomaControlFeatures[,channel3] )/3.0
+
+SMelanomaControlFeatures <- (abs(MelanomaControlFeatures[,channel1] - MMelanomaControlFeatures) +
+                             abs(MelanomaControlFeatures[,channel2] - MMelanomaControlFeatures) +
+                             abs(MelanomaControlFeatures[,channel3] - MMelanomaControlFeatures))/3.0
+colnames(MMelanomaControlFeatures) <- paste("M_C",FeatureNames$Features,sep="")
+colnames(SMelanomaControlFeatures) <- paste("S_C",FeatureNames$Features,sep="")
+
+
+MelanomaControlFeatures <- cbind(MelanomaControlFeatures,SMelanomaControlFeatures/(0.001+abs(MMelanomaControlFeatures)))
+
+
+MSeborrheicControlFeatures <- (  SeborrheicControlFeatures[,channel1] +
+                                 SeborrheicControlFeatures[,channel2] +
+                                 SeborrheicControlFeatures[,channel3] )/3.0
+SSeborrheicControlFeatures <- (abs(SeborrheicControlFeatures[,channel1] - MSeborrheicControlFeatures) +
+                               abs(SeborrheicControlFeatures[,channel2] - MSeborrheicControlFeatures) +
+                               abs(SeborrheicControlFeatures[,channel3] - MSeborrheicControlFeatures))/3.0
 colnames(MSeborrheicControlFeatures) <- paste("M_C",FeatureNames$Features,sep="")
 colnames(SSeborrheicControlFeatures) <- paste("S_C",FeatureNames$Features,sep="")
 
