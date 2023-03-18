@@ -1,3 +1,5 @@
+%Código Matlab Melanoma
+
 melanomapath ='/Users/Moctezuma/Desktop/MatlabScripts';
 allquantiativeLesionData = [];
 allquantiativeControlData = [];
