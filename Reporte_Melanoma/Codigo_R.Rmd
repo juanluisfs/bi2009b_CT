@@ -1,4 +1,4 @@
----
+----
 title: "Reporte - Análisis Melanoma vs. Ketosis Seborreica"
 author: "Equipo CT"
 date: "17/03/2023"
