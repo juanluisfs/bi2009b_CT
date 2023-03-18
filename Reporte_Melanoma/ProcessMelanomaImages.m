@@ -329,3 +329,5 @@ imageFile ='ISIC_0015284.jpg'; loadAndProcessQuantitateImage;
 
 writematrix(allquantiativeLesionData,'MelanomaLesionFeatures.csv') 
 writematrix(allquantiativeControlData,'MelanomaControlFeatures.csv') 
+
+%% A01383088 Juan Luis Flores Sánchez
