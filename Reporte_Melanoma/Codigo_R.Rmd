@@ -198,3 +198,5 @@ performace <- predictionStats_binary(cvKNN$medianTest,"KNN")
 par(op)
 
 ```
+
+## A01383088 Juan Luis Flores Sánchez
